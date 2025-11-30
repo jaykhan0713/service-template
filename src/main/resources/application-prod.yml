@@ -1,0 +1,18 @@
+spring:
+  profiles: prod
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers,prometheus
+  tracing:
+    sampling:
+      probability: 1.0
+  info:
+    git:
+      mode: full

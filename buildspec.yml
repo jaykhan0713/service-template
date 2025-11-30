@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    IMAGE_REPO_NAME: jay-showcase
+    IMAGE_REPO_NAME: service-template
   # CodeBuild sets these automatically:
   # - AWS_DEFAULT_REGION
   # - CODEBUILD_RESOLVED_SOURCE_VERSION (commit SHA)

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: jay-showcase
+    name: service-template
   threads.virtual.enabled: true
   mvc.problemdetails.enabled: true
 

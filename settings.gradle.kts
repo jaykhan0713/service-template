@@ -1,1 +1,1 @@
-rootProject.name = "jay-showcase"
+rootProject.name = "service-template"
