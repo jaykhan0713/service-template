@@ -13,12 +13,4 @@ public class DefaultController {
     DefaultResponse get() {
         return new DefaultResponse("This works. User Id: " + MDC.get("userId"));
     }
-
-    @GetMapping("/thread")
-    public String threadInfo() {
-        Thread t = Thread.currentThread();
-        return "name=" + t.getName()
-                + ", isVirtual=" + t.isVirtual()
-                + ", toString=" + t;
-    }
 }
