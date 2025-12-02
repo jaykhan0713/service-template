@@ -30,4 +30,4 @@ jobs:
       - name: Run SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew sonarqube --no-daemon -Dsonar.login=$SONAR_TOKEN
+        run: ./gradlew sonar --no-daemon
