@@ -60,6 +60,6 @@ sonarqube {
     properties {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.organization", "jaykhan0713")
-        property("sonar.projectKey", "jaykhan0713")
+        property("sonar.projectKey", "jaykhan0713_service-template")
     }
 }
