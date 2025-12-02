@@ -31,3 +31,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew sonar --no-daemon
+
+      - name: Upload Sonar build results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-build-results
+          path: /home/runner/work/_temp/.gradle-actions/build-results/
