@@ -1,4 +1,4 @@
-package com.jay.template.logging;
+package com.jay.template.logging.config;
 
 import com.jay.template.logging.properties.MdcProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

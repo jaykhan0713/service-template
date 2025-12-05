@@ -28,7 +28,7 @@ import org.springframework.mock.web.MockFilterChain;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-class RequestMdcLoggingFilterTest {
+class MdcRequestFilterTest {
 
     private static final String PROPS_KEY = "app.logging.mdc";
     private static final Logger META_DATA_LOGGER = (Logger) LoggerFactory.getLogger(MetaDataLogger.class);
@@ -44,6 +44,7 @@ class RequestMdcLoggingFilterTest {
 
     @BeforeEach
     void setUp() {
+        MDC.clear();
         listAppender = new ListAppender<>() {
             @Override
             protected void append(ILoggingEvent eventObject) {
@@ -59,6 +60,7 @@ class RequestMdcLoggingFilterTest {
 
     @AfterEach
     void tearDown() {
+        MDC.clear();
         META_DATA_LOGGER.detachAppender(listAppender);
     }
 
@@ -70,7 +72,7 @@ class RequestMdcLoggingFilterTest {
 
         MdcProperties props = new MdcProperties();
         props.setHeaders(Map.of("test-header", "testHeader"));
-        RequestMdcLoggingFilter filter = new RequestMdcLoggingFilter(props);
+        MdcRequestFilter filter = new MdcRequestFilter(props);
 
         filter.doFilter(request, response, filterChain);
 
@@ -92,7 +94,7 @@ class RequestMdcLoggingFilterTest {
         props.setStatus(" ");
         props.setDurationMs(" ");
 
-        RequestMdcLoggingFilter filter = new RequestMdcLoggingFilter(props);
+        MdcRequestFilter filter = new MdcRequestFilter(props);
 
         filter.doFilter(request, response, filterChain);
 
@@ -109,7 +111,7 @@ class RequestMdcLoggingFilterTest {
 
         MdcProperties props = binder.bind(PROPS_KEY, MdcProperties.class);
 
-        RequestMdcLoggingFilter filter = new RequestMdcLoggingFilter(props);
+        MdcRequestFilter filter = new MdcRequestFilter(props);
 
         String gatewayTraceId = UUID.randomUUID().toString();
         String userId = UUID.randomUUID().toString();

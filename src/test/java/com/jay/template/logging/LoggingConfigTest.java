@@ -2,6 +2,7 @@ package com.jay.template.logging;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.jay.template.logging.config.LoggingConfig;
 import com.jay.template.logging.properties.MdcProperties;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
@@ -12,6 +13,7 @@ class LoggingConfigTest {
 
     @Test
     void mdcPropertiesIsRegisteredAsBean() {
+
         contextRunner.run(context -> {
             MdcProperties bean = context.getBean(MdcProperties.class);
             assertNotNull(bean);

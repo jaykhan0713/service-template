@@ -49,6 +49,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+// JUnit
 tasks.withType<Test> {
     useJUnitPlatform()
 }
@@ -101,4 +102,14 @@ tasks.jacocoTestReport {
             }
         })
     )
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.75.toBigDecimal()
+            }
+        }
+    }
 }

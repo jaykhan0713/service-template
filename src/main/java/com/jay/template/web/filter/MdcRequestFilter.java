@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Component
-public class RequestMdcLoggingFilter extends OncePerRequestFilter {
+public class MdcRequestFilter extends OncePerRequestFilter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MetaDataLogger.class);
 
     private final MdcProperties props;
 
-    public RequestMdcLoggingFilter(MdcProperties props) {
+    public MdcRequestFilter(MdcProperties props) {
         this.props = props;
     }
     @Override
@@ -34,6 +34,7 @@ public class RequestMdcLoggingFilter extends OncePerRequestFilter {
         long start = System.currentTimeMillis();
         String method = request.getMethod();
         String path = request.getRequestURI();
+        request.getRequestId();
 
         try {
 
